@@ -8,10 +8,10 @@ import (
 func main() {
 	fs := http.FileServer(http.Dir("static"))
 	http.Handle("/", fs)
-	
 
 	http.HandleFunc("/hello", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "hello %s", r.FormValue("name"))
+		name := r.FormValue("name")
+		fmt.Fprintf(w, "hello %s", name)
 	})
 
 	//remove 'localhost' when deploying to prod
