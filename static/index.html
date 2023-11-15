@@ -1,20 +1,63 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>goshaw</title>
-    <script src="https://unpkg.com/htmx.org"></script>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
-<body class="bg-gray-900 flex items-center justify-center h-screen">
-    <div class="text-center">
-        <h1 class="text-4xl mb-8 text-white">goshaw</h1>
+    <head>
+        <title>goshaw</title>
+        <script src="https://unpkg.com/htmx.org"></script>
 
-        <form hx-post="/hello" hx-trigger="submit" hx-target="#greeting" class="flex flex-row items-center">
-            <input type="text" name="name" placeholder="enter your name" class="px-4 py-1 border border-gray-300 rounded mr-2">
-            <button type="submit" class="bg-blue-500 text-white px-6 py-1 rounded hover:bg-blue-600">say hello</button>
-        </form>
+        <!-- do NOT use CDN in enterprise apps -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+            rel="stylesheet"
+        />
+    </head>
+    <body class="bg-gray-900 flex items-center justify-center h-screen">
+        <div class="text-center">
+            <h1 class="text-4xl mb-8 text-white">goshaw</h1>
 
-        <div id="greeting" class="mt-8 text-2xl text-white"></div>
-    </div>
-</body>
+            <form
+                hx-post="/hello"
+                hx-trigger="submit"
+                hx-target="#greeting"
+                class="flex flex-row items-center mb-4"
+            >
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="enter your name"
+                    class="px-4 py-1 border border-gray-300 rounded mr-2"
+                    required
+                />
+                <button
+                    type="submit"
+                    class="bg-blue-500 text-white px-6 py-1 rounded hover:bg-blue-600"
+                >
+                    say hello
+                </button>
+            </form>
+
+            <form
+                hx-post="/goodbye"
+                hx-trigger="submit"
+                hx-target="#greeting"
+                hx-boost="true"
+                class="flex flex-row items-center"
+            >
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="enter your name"
+                    class="px-4 py-1 border border-gray-300 rounded mr-2"
+                    required
+                />
+                <button
+                    type="submit"
+                    class="bg-blue-500 text-white px-6 py-1 rounded hover:bg-blue-600"
+                >
+                    say goodbye
+                </button>
+            </form>
+            <div id="greeting" class="mt-8 text-2xl text-white"></div>
+
+        </div>
+    </body>
 </html>
