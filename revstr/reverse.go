@@ -1,4 +1,4 @@
-package morestrings
+package revstr
 
 func ReverseRunes(s string) string {
     r := []rune(s)
